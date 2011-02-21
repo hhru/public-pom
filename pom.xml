@@ -17,7 +17,7 @@
   <groupId>ru.hh.public-pom</groupId>
   <artifactId>public-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.26-SNAPSHOT</version>
+  <version>1.26</version>
   <name>hh.ru common public project descriptor</name>
 
   <build>
