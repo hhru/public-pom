@@ -184,6 +184,23 @@
     </plugins>
   </build>
 
+  <repositories>
+    <repository>
+      <id>hh-public</id>
+      <name>hh public releases repository</name>
+      <url>dav:http://m2.hh.ru/content/repositories/public-releases</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+    <repository>
+      <id>hh-public-snapshots</id>
+      <name>hh public snapshots repository</name>
+      <url>dav:http://m2.hh.ru/content/repositories/public-snapshots</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+  </repositories>
+
   <distributionManagement>
     <repository>
       <id>hh-public</id>
