@@ -17,7 +17,7 @@
   <groupId>ru.hh.public-pom</groupId>
   <artifactId>public-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.27-SNAPSHOT</version>
+  <version>1.30</version>
   <name>hh.ru common public project descriptor</name>
 
   <build>
@@ -195,7 +195,7 @@
     <repository>
       <id>hh-public-snapshots</id>
       <name>hh public snapshots repository</name>
-      <url>dav:http://m2.hh.ru/content/repositories/public-snapshots</url>
+      <url>dav:http://m2.hh.ru/content/repositories/snapshots</url>
       <releases><enabled>false</enabled></releases>
       <snapshots><enabled>true</enabled></snapshots>
     </repository>
@@ -210,7 +210,7 @@
     <snapshotRepository>
       <id>hh-public-snapshots</id>
       <name>hh public snapshots repository</name>
-      <url>dav:http://m2.hh.ru/content/repositories/public-snapshots</url>
+      <url>dav:http://m2.hh.ru/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
