@@ -224,6 +224,13 @@
         </repository>
     </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public-plugin-repo</id>
+            <url>http://m2.hh.ru/content/repositories/public-releases</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <distributionManagement>
         <repository>
             <id>hh-public</id>
