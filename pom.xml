@@ -132,7 +132,7 @@
                 <plugin>
                     <groupId>ru.hh.checkstyle</groupId>
                     <artifactId>hh-maven-checkstyle-plugin</artifactId>
-                    <version>1.5</version>
+                    <version>1.6</version>
                 </plugin>
             </plugins>
         </pluginManagement>
