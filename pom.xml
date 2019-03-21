@@ -17,7 +17,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.38-SNAPSHOT</version>
+    <version>1.38</version>
     <name>hh.ru common public project descriptor</name>
 
     <build>
@@ -257,6 +257,6 @@
         <connection>scm:git:git://github.com/hhru/public-pom</connection>
         <developerConnection>scm:git:ssh://git@github.com/hhru/public-pom</developerConnection>
         <url>https://github.com/hhru/public-pom</url>
-        <tag>HEAD</tag>
+        <tag>public-pom-1.38</tag>
     </scm>
 </project>
