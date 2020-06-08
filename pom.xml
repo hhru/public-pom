@@ -12,7 +12,7 @@
 ~ limitations under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
@@ -212,12 +212,12 @@
         <repository>
             <id>hh-public</id>
             <name>hh public releases repository</name>
-            <url>dav:http://m2.hh.ru/content/repositories/public-releases</url>
+            <url>dav:https://m2.hh.ru/content/repositories/public-releases</url>
         </repository>
         <snapshotRepository>
             <id>hh-public-snapshots</id>
             <name>hh public snapshots repository</name>
-            <url>dav:http://m2.hh.ru/content/repositories/snapshots</url>
+            <url>dav:https://m2.hh.ru/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -225,9 +225,10 @@
         <repository>
             <id>hh-public</id>
             <name>hh public releases repository</name>
-            <url>dav:http://m2.hh.ru/content/repositories/public-releases</url>
+            <url>https://m2.hh.ru/content/repositories/public-releases</url>
             <releases>
                 <enabled>true</enabled>
+                <checksumPolicy>fail</checksumPolicy>
             </releases>
             <snapshots>
                 <enabled>false</enabled>
@@ -236,12 +237,13 @@
         <repository>
             <id>hh-public-snapshots</id>
             <name>hh public snapshots repository</name>
-            <url>dav:http://m2.hh.ru/content/repositories/snapshots</url>
+            <url>https://m2.hh.ru/content/repositories/snapshots</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
+                <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
     </repositories>
@@ -249,13 +251,19 @@
     <pluginRepositories>
         <pluginRepository>
             <id>public-plugin-repo</id>
-            <url>http://m2.hh.ru/content/repositories/public-releases</url>
+            <url>https://m2.hh.ru/content/repositories/public-releases</url>
+            <releases>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </pluginRepository>
     </pluginRepositories>
 
     <scm>
         <connection>scm:git:git://github.com/hhru/public-pom</connection>
-        <developerConnection>scm:git:ssh://git@github.com/hhru/public-pom</developerConnection>
+        <developerConnection>scm:git:git@github.com:hhru/public-pom.git</developerConnection>
         <url>https://github.com/hhru/public-pom</url>
         <tag>HEAD</tag>
     </scm>
