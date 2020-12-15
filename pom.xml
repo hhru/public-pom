@@ -17,7 +17,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.47-SNAPSHOT</version>
+    <version>1.48-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <build>
@@ -140,7 +140,7 @@
                 <plugin>
                     <groupId>ru.hh.checkstyle</groupId>
                     <artifactId>hh-maven-checkstyle-plugin</artifactId>
-                    <version>1.13</version>
+                    <version>1.14</version>
                 </plugin>
             </plugins>
         </pluginManagement>
