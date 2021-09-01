@@ -81,7 +81,7 @@
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <useReleaseProfile>false</useReleaseProfile>
                         <localCheckout>true</localCheckout>
-                        <pushChanges>false</pushChanges>
+                        <pushChanges>true</pushChanges>
                     </configuration>
                 </plugin>
                 <plugin>
