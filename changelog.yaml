@@ -1,0 +1,6 @@
+-   name: 1.50.2
+    date: '2022-04-07T18:19:31.152483+03:00'
+    description: "1. удалил два плагина:\r\n\t * maven-project-info-reports-plugin\r\
+        \n\t * maven-assembly-plugin\r\n2. перенес все версии в properties"
+    instructions: ''
+    compatible: true
