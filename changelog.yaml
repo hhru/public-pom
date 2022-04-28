@@ -1,6 +1,14 @@
+-   name: 1.51.0
+    date: '2022-04-28T16:30:38.875145+03:00'
+    description: Обновил `maven-compiler-plugin` и зафиксировал версию `jib-maven-plugin`
+    instructions: Если в вашем pom.xml есть указание версии для jib-maven-plugin,
+        удалите её, чтобы подтягивалась из public-pom.
+    compatible: false
+
 -   name: 1.50.2
     date: '2022-04-07T18:19:31.152483+03:00'
     description: "1. удалил два плагина:\r\n\t * maven-project-info-reports-plugin\r\
         \n\t * maven-assembly-plugin\r\n2. перенес все версии в properties"
     instructions: ''
     compatible: true
+
