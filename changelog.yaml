@@ -1,8 +1,10 @@
 -   name: 1.51.0
     date: '2022-04-28T16:30:38.875145+03:00'
     description: Обновил `maven-compiler-plugin` и зафиксировал версию `jib-maven-plugin`
-    instructions: Если в вашем pom.xml есть указание версии для jib-maven-plugin,
-        удалите её, чтобы подтягивалась из public-pom.
+    instructions: "Если в вашем pom.xml есть указание версии для jib-maven-plugin, \
+        удалите её, чтобы подтягивалась из public-pom.\r\n\
+        Также надо убрать [хук](https://github.com/hhru/deploy-dev-secure/pull/3291/files#diff-d0194071b988d83c33bed2ab636e863a1b839eb32cefdb8785eb5db977410cb7L10) \
+        из skaffold.yaml"
     compatible: false
 
 -   name: 1.50.2
