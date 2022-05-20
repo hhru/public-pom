@@ -1,10 +1,23 @@
+-   name: 1.52.0
+    date: '2022-05-20T14:38:10.024418+03:00'
+    description: "* Добавлен **spring-boot-dependencies** как parent pom\r\n* Добавлены\
+        \ в dependencyManageent несколько часто используемых библиотек\r\n* Удалены\
+        \ дубликаты плагинов которые есть в **spring-boot-dependencies**"
+    instructions: "В целом при обновении ничего сломаться не должно, но желательно\
+        \ пройтись по зависимостям и если похожие есть в помнике **spring-boot-dependencies**,\
+        \ или в **public-pom**, то удалить версию, либо если зависмость в dependencyManagement,\
+        \ удалить полностью.\r\nЕсли зависомость есть но не совпадают версии и нужно\
+        \ оставить именно ту что есть сейчас, то лучше прописать в проперти версию,\
+        \ имя проперти должно быть такое же как в **spring-boot-dependencies** или\
+        \ **public-pom**. Либо можно оставить как есть, но **не желательно**."
+    compatible: false
+
 -   name: 1.51.0
     date: '2022-04-28T16:30:38.875145+03:00'
     description: Обновил `maven-compiler-plugin` и зафиксировал версию `jib-maven-plugin`
-    instructions: "Если в вашем pom.xml есть указание версии для jib-maven-plugin, \
-        удалите её, чтобы подтягивалась из public-pom.\r\n\
-        Также надо убрать [хук](https://github.com/hhru/deploy-dev-secure/pull/3291/files#diff-d0194071b988d83c33bed2ab636e863a1b839eb32cefdb8785eb5db977410cb7L10) \
-        из skaffold.yaml"
+    instructions: "Если в вашем pom.xml есть указание версии для jib-maven-plugin,\
+        \ удалите её, чтобы подтягивалась из public-pom.\r\nТакже надо убрать [хук](https://github.com/hhru/deploy-dev-secure/pull/3291/files#diff-d0194071b988d83c33bed2ab636e863a1b839eb32cefdb8785eb5db977410cb7L10)\
+        \ из skaffold.yaml"
     compatible: false
 
 -   name: 1.50.2
