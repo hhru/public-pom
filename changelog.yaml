@@ -1,3 +1,9 @@
+-   name: 1.52.1
+    date: '2022-06-16T13:40:09.948920+03:00'
+    description: Фикс предупреждения мавена
+    instructions: ''
+    compatible: true
+
 -   name: 1.52.0
     date: '2022-05-20T14:38:10.024418+03:00'
     description: "* Добавлен **spring-boot-dependencies** как parent pom\r\n* Добавлены\
