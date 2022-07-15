@@ -30,6 +30,7 @@
     <properties>
         <!--  REMOVE AFTER UPDATE OF KAFKA CLUSTER, CAUSE OPTION enable.idempotence IS SET TO true BY DEFAULT IN NEWER VERSIONS  -->
         <kafka.version>3.0.0</kafka.version>
+        <elasticsearch.version>7.16.1</elasticsearch.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
