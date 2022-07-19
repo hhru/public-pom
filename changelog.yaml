@@ -1,3 +1,10 @@
+-   name: 1.52.2
+    date: '2022-07-19T18:50:51.713548+03:00'
+    description: "* В dependencyManagement добавился jsr305;\r\n* обновление elasticSearch\
+        \ в dependencyManagement до 7.16.1"
+    instructions: ''
+    compatible: true
+
 -   name: 1.52.1
     date: '2022-06-16T13:40:09.948920+03:00'
     description: Фикс предупреждения мавена
