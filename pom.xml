@@ -30,6 +30,7 @@
     <properties>
         <!--  REMOVE AFTER UPDATE OF KAFKA CLUSTER, CAUSE OPTION enable.idempotence IS SET TO true BY DEFAULT IN NEWER VERSIONS  -->
         <kafka.version>3.0.0</kafka.version>
+        <elasticsearch.version>7.16.1</elasticsearch.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
@@ -43,10 +44,11 @@
         <wagon-webdav.version>1.0-beta-2</wagon-webdav.version>
         <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
 
-        <opentelemetry.version>1.10.0</opentelemetry.version>
-        <testcontainers.version>1.16.2</testcontainers.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-collections4.version>4.4</commons-collections4.version>
+        <jsr305.version>3.0.2</jsr305.version>
+        <opentelemetry.version>1.10.0</opentelemetry.version>
+        <testcontainers.version>1.16.2</testcontainers.version>
     </properties>
 
     <build>
@@ -231,6 +233,12 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>${commons-collections4.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
