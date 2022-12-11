@@ -1,0 +1,13 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: public-pom
+  annotations:
+    github.com/project-slug: hhru/public-pom
+  tags:
+    - backend
+    - java
+spec:
+  type: library
+  lifecycle: production
