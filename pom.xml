@@ -37,7 +37,7 @@
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
         <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
         <hh-maven-checkstyle-plugin.version>1.17.1</hh-maven-checkstyle-plugin.version>
         <wagon-webdav.version>1.0-beta-2</wagon-webdav.version>
         <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
