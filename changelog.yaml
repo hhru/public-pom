@@ -1,3 +1,9 @@
+-   name: 1.52.4
+    date: '2022-12-15T18:47:16.535453+03:00'
+    description: Обновление jacoco-maven-plugin до 0.8.8
+    instructions: ''
+    compatible: true
+
 -   name: 1.52.3
     date: '2022-10-12T11:21:24.544730+03:00'
     description: Выпилена пропертя kafka.version
