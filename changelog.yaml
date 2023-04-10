@@ -1,3 +1,10 @@
+-   name: 1.53.1
+    date: '2023-04-10T12:01:54.088913+03:00'
+    description: "* Обновление OpenTelemetry до 1.23.1\r\n* Добавление opentelemetry-jdbc\
+        \ в dependencyManagement"
+    instructions: ''
+    compatible: true
+
 -   name: 1.53.0
     date: '2023-01-24T13:25:23.487433+03:00'
     description: Обновление checkstyle до 1.18.0
