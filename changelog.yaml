@@ -1,3 +1,10 @@
+-   name: 1.54.0
+    date: '2023-05-11T12:32:42.654298+03:00'
+    description: Обновление hh-checkstyle до 1.19.0
+    instructions: Убрать Optional-обёртку из аргументов и полей класса; рекомендуется
+        добавлять аннотацию javax.annotation.@Nullable для подсказок в IDE
+    compatible: false
+
 -   name: 1.53.1
     date: '2023-04-10T12:01:54.088913+03:00'
     description: "* Обновление OpenTelemetry до 1.23.1\r\n* Добавление opentelemetry-jdbc\
