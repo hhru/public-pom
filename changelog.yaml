@@ -1,3 +1,9 @@
+-   name: 1.54.1
+    date: '2023-07-10T16:42:10.234457+03:00'
+    description: Исправление конфигурации hh-checkstyle плагина
+    instructions: ''
+    compatible: true
+
 -   name: 1.54.0
     date: '2023-05-11T12:32:42.654298+03:00'
     description: Обновление hh-checkstyle до 1.19.0
