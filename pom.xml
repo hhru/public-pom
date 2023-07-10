@@ -159,7 +159,7 @@
                     <hhCheckStyleConfig combine.children="append">
                         <config>shared-checkstyle.xml</config>
                     </hhCheckStyleConfig>
-                    <encoding>UTF-8</encoding>
+                    <inputEncoding>UTF-8</inputEncoding>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                 </configuration>
                 <executions>
