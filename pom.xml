@@ -18,13 +18,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.6.7</version>
+        <version>3.1.0</version>
     </parent>
 
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.54.3-SNAPSHOT</version>
+    <version>1.54.2.jakarta-rc1-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -42,6 +42,7 @@
         <wagon-webdav.version>1.0-beta-2</wagon-webdav.version>
         <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
 
+        <jakarta-inject.version>2.0.1</jakarta-inject.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <jsr305.version>3.0.2</jsr305.version>
@@ -209,6 +210,12 @@
     -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>jakarta.inject</groupId>
+                <artifactId>jakarta.inject-api</artifactId>
+                <version>${jakarta-inject.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>io.opentelemetry</groupId>
                 <artifactId>opentelemetry-bom</artifactId>
