@@ -24,7 +24,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.54.1.jakarta-rc2-SNAPSHOT</version>
+    <version>1.54.2.jakarta-rc2-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -49,6 +49,7 @@
         <opentelemetry.version>1.23.1</opentelemetry.version>
         <opentelemetry.jdbc.version>1.23.0-alpha</opentelemetry.jdbc.version>
         <testcontainers.version>1.16.2</testcontainers.version>
+        <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
     </properties>
 
     <build>
@@ -249,7 +250,13 @@
                 <artifactId>jsr305</artifactId>
                 <version>${jsr305.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>com.scylladb</groupId>
+                <artifactId>java-driver-bom</artifactId>
+                <version>${scylladb.java-driver.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

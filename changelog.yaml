@@ -1,3 +1,9 @@
+-   name: 1.54.2
+    date: '2023-07-27T10:41:45.917536+03:00'
+    description: add scylla java-driver bom
+    instructions: ''
+    compatible: true
+
 -   name: 1.54.1
     date: '2023-07-10T16:42:10.234457+03:00'
     description: Исправление конфигурации hh-checkstyle плагина
