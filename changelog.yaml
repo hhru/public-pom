@@ -1,3 +1,9 @@
+-   name: 1.54.3
+    date: '2023-09-14T13:44:11.713993+03:00'
+    description: ''
+    instructions: ''
+    compatible: true
+
 -   name: 1.54.2
     date: '2023-07-27T10:41:45.917536+03:00'
     description: add scylla java-driver bom
