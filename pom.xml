@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.54.2.jakarta-rc2-SNAPSHOT</version>
+    <version>1.54.2.jakarta-rc2</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -317,6 +317,6 @@
         <connection>scm:git:git://github.com/hhru/public-pom</connection>
         <developerConnection>scm:git:git@github.com:hhru/public-pom.git</developerConnection>
         <url>https://github.com/hhru/public-pom</url>
-        <tag>HEAD</tag>
+        <tag>public-pom-1.54.2.jakarta-rc2</tag>
     </scm>
 </project>
