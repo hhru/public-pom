@@ -1,3 +1,14 @@
+-   name: 1.56.0
+    date: '2023-11-30T11:59:43.627037+03:00'
+    description: Добавлен новый плагин smallrye-open-api-maven-plugin для автоматической
+        генерации openapi спецификации. Плагин выключен по-умолчанию.
+    instructions: "Включение производится через переопределение skip конфигурации.\r\
+        \n\r\n```xml\r\n<plugin>\r\n                <artifactId>smallrye-open-api-maven-plugin</artifactId>\r\
+        \n                <groupId>io.smallrye</groupId>\r\n                <configuration>\r\
+        \n                    <skip>false</skip>\r\n                </configuration>\r\
+        \n            </plugin>\r\n```"
+    compatible: false
+
 -   name: 1.55.0
     date: '2023-11-13T12:48:28.993100+03:00'
     description: Обновление hh-checkstyle до версии 1.20.0
