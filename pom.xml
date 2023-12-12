@@ -134,6 +134,7 @@
                     <version>${smallrye-open-api-maven-plugin.version}</version>
                     <executions>
                         <execution>
+                            <phase>compile</phase>
                             <goals>
                                 <goal>generate-schema</goal>
                             </goals>
