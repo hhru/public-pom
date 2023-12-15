@@ -1,3 +1,9 @@
+-   name: 1.56.1
+    date: '2023-12-12T13:01:07.082482+03:00'
+    description: '* smallrye-open-api-maven-plugin перенесен на фазу compile'
+    instructions: ''
+    compatible: true
+
 -   name: 1.56.0
     date: '2023-11-30T11:59:43.627037+03:00'
     description: Добавлен новый плагин smallrye-open-api-maven-plugin для автоматической
