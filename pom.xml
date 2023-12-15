@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.56.0.jakarta-rc2-SNAPSHOT</version>
+    <version>1.56.1.jakarta-rc1-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -135,6 +135,7 @@
                     <version>${smallrye-open-api-maven-plugin.version}</version>
                     <executions>
                         <execution>
+                            <phase>compile</phase>
                             <goals>
                                 <goal>generate-schema</goal>
                             </goals>
