@@ -105,6 +105,7 @@
                         <showWarnings>true</showWarnings>
                         <optimize>true</optimize>
                         <showDeprecation>true</showDeprecation>
+                        <parameters>true</parameters>
                     </configuration>
                 </plugin>
                 <plugin>
