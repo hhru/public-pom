@@ -284,6 +284,12 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>${opentelemetry.version}-alpha</version>
             </dependency>
             <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-semconv</artifactId>
+                <version>${opentelemetry.version}-alpha</version>
+            </dependency>
+
+            <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
