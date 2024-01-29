@@ -50,6 +50,7 @@
         <opentelemetry.jdbc.version>1.23.0-alpha</opentelemetry.jdbc.version>
         <testcontainers.version>1.16.2</testcontainers.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
+        <sentry.version>7.2.0</sentry.version>
     </properties>
 
     <build>
@@ -311,6 +312,13 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>com.scylladb</groupId>
                 <artifactId>java-driver-bom</artifactId>
                 <version>${scylladb.java-driver.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.sentry</groupId>
+                <artifactId>sentry-bom</artifactId>
+                <version>${sentry.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
