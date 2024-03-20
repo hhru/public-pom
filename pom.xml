@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.57.0.jakarta-rc3-SNAPSHOT</version>
+    <version>1.57.0.jakarta-rc3</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -372,6 +372,6 @@ https://mattermost.pyn.ru/hhru/channels/platform .
         <connection>scm:git:git://github.com/hhru/public-pom</connection>
         <developerConnection>scm:git:git@github.com:hhru/public-pom.git</developerConnection>
         <url>https://github.com/hhru/public-pom</url>
-        <tag>HEAD</tag>
+        <tag>1.57.0.jakarta-rc3</tag>
     </scm>
 </project>
