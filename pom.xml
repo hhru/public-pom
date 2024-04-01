@@ -29,6 +29,8 @@
     <properties>
         <!-- TODO: rm me after spring-boot-dependencies:3.2.0 release -->
         <hibernate.version>6.3.1.Final</hibernate.version>
+        <!-- TODO: rm me after migration to new version of jedis (4.3.2 or higher) in redis-client -->
+        <jedis.version>3.7.1</jedis.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
