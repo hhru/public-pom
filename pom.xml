@@ -48,6 +48,7 @@
         <commons-collections4.version>4.4</commons-collections4.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
+        <hypersistence-utils-hibernate-63.version>3.7.3</hypersistence-utils-hibernate-63.version>
     </properties>
 
     <build>
@@ -311,6 +312,11 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>${sentry.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.hypersistence</groupId>
+                <artifactId>hypersistence-utils-hibernate-63</artifactId>
+                <version>${hypersistence-utils-hibernate-63.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
