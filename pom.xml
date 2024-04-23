@@ -23,12 +23,14 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.57.0.jakarta-rc5-SNAPSHOT</version>
+    <version>1.57.0.jakarta-rc6-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
         <!-- TODO: rm me after spring-boot-dependencies:3.2.0 release -->
         <hibernate.version>6.3.1.Final</hibernate.version>
+        <!-- TODO: rm me after jackson will be upped in spring-boot-dependencies -->
+        <jackson-bom.version>2.16.2</jackson-bom.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
