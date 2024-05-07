@@ -260,13 +260,6 @@ https://mattermost.pyn.ru/hhru/channels/platform .
             </plugin>
         </plugins>
 
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav</artifactId>
-                <version>${wagon-webdav.version}</version>
-            </extension>
-        </extensions>
     </build>
 
     <!--
@@ -329,12 +322,12 @@ https://mattermost.pyn.ru/hhru/channels/platform .
         <repository>
             <id>hh-public</id>
             <name>hh public releases repository</name>
-            <url>dav:https://m2.hh.ru/content/repositories/public-releases</url>
+            <url>https://m2.hh.ru/content/repositories/public-releases</url>
         </repository>
         <snapshotRepository>
             <id>hh-public-snapshots</id>
             <name>hh public snapshots repository</name>
-            <url>dav:https://m2.hh.ru/content/repositories/snapshots</url>
+            <url>https://m2.hh.ru/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
