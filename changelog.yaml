@@ -1,3 +1,9 @@
+-   name: 1.57.2
+    date: '2024-05-07T11:15:24.374039+03:00'
+    description: remove dav
+    instructions: ''
+    compatible: true
+
 -   name: 1.57.0
     date: '2024-01-29T16:15:47.787003+03:00'
     description: В секцию dependencyManagement добавлен sentry-bom
