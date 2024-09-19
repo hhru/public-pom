@@ -31,7 +31,7 @@
         <elasticsearch.version>7.16.1</elasticsearch.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
-        <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
         <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -103,7 +103,6 @@
                         <release>${maven-compiler.release.version}</release>
                         <encoding>UTF-8</encoding>
                         <showWarnings>true</showWarnings>
-                        <optimize>true</optimize>
                         <showDeprecation>true</showDeprecation>
                     </configuration>
                 </plugin>
