@@ -51,6 +51,7 @@
         <testcontainers.version>1.16.2</testcontainers.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
+        <minio.version>8.3.5</minio.version>
     </properties>
 
     <build>
@@ -313,6 +314,11 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>${sentry.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
