@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.57.6.jakarta-rc2-SNAPSHOT</version>
+    <version>1.57.6.jakarta-rc1.spring-boot-rc1-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -190,6 +190,18 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                             ru.hh.nab.starter.jersey.DefaultResourceConfig
                         </scanExcludeClasses>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>build-properties-generation</id>
+                            <goals>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

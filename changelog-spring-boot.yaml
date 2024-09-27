@@ -1,0 +1,6 @@
+-   name: 1.57.6.jakarta-rc1.spring-boot-rc1
+    date: '2024-09-25T15:00:00.000000+03:00'
+    description: "В pluginManagement добавлен spring-boot-maven-plugin. После подключения spring-boot-maven-plugin'а в помник 
+        вашего проекта при его сборке будет генерироваться файл META-INF/build-info.properties, содержащий различную информацию 
+        о билде (например, название артефакта, версия, время сборки и тд)"
+    compatible: true
