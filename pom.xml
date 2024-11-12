@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.58.0.jakarta-rc3.spring-boot-rc1</version>
+    <version>1.58.0.jakarta-rc3.spring-boot-rc2-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -392,6 +392,6 @@ https://mattermost.pyn.ru/hhru/channels/platform .
         <connection>scm:git:git://github.com/hhru/public-pom</connection>
         <developerConnection>scm:git:git@github.com:hhru/public-pom.git</developerConnection>
         <url>https://github.com/hhru/public-pom</url>
-        <tag>1.58.0.jakarta-rc3.spring-boot-rc1</tag>
+        <tag>HEAD</tag>
     </scm>
 </project>
