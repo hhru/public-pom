@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>1.57.6.jakarta-rc1.spring-boot-rc2-SNAPSHOT</version>
+    <version>1.58.0.jakarta-rc3.spring-boot-rc1-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -33,7 +33,7 @@
         <jackson-bom.version>2.16.2</jackson-bom.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
-        <maven-compiler-plugin.version>3.10.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
         <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
         <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
@@ -48,8 +48,10 @@
         <jakarta-inject.version>2.0.1</jakarta-inject.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-collections4.version>4.4</commons-collections4.version>
+        <openrewrite.version>2.20.0</openrewrite.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
+        <minio.version>8.3.5</minio.version>
     </properties>
 
     <build>
@@ -101,7 +103,6 @@
                         <release>${maven-compiler.release.version}</release>
                         <encoding>UTF-8</encoding>
                         <showWarnings>true</showWarnings>
-                        <optimize>true</optimize>
                         <showDeprecation>true</showDeprecation>
                         <parameters>true</parameters>
                     </configuration>
@@ -279,6 +280,13 @@ https://mattermost.pyn.ru/hhru/channels/platform .
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.openrewrite.recipe</groupId>
+                <artifactId>rewrite-recipe-bom</artifactId>
+                <version>${openrewrite.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>jakarta.inject</groupId>
                 <artifactId>jakarta.inject-api</artifactId>
                 <version>${jakarta-inject.version}</version>
@@ -318,6 +326,11 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>${sentry.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
