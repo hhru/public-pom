@@ -1,8 +1,8 @@
 -   name: 2.0.1
     date: '2025-04-15T16:16:56.840472+03:00'
     description: up checkstyle 2.0.0
-    instructions: ''
-    compatible: true
+    instructions: 'удалить или исключить javax зависимости из pom'
+    compatible: false
 
 -   name: 2.0.0
     date: '2025-04-15T15:40:31.513967+03:00'
