@@ -1,4 +1,12 @@
 -   name: 2.0.0
+    date: '2025-04-15T15:40:31.513967+03:00'
+    description: ''
+    instructions: "Необходимо произвести миграцию по гайду https://wiki.hh.ru/pages/viewpage.action?pageId=415824200\
+        \ \r\nПри обновлении public-pom с версии 1.58.0.jakarta-rc3 никаких изменений\
+        \ не требуется"
+    compatible: false
+
+-   name: 2.0.0
     date: '2025-04-15T15:36:37.530236+03:00'
     description: ''
     instructions: "Необходимо произвести миграцию по гайду https://wiki.hh.ru/pages/viewpage.action?pageId=415824200\
