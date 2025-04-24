@@ -1,7 +1,14 @@
+-   name: 2.0.2
+    date: '2025-04-24T20:39:35.960519+03:00'
+    description: Добавили `com.diffplug.spotless:spotless-maven-plugin`, который запускается
+        только вручную `mvn spotless:apply`
+    instructions: ''
+    compatible: true
+
 -   name: 2.0.1
     date: '2025-04-15T16:16:56.840472+03:00'
     description: up checkstyle 2.0.0
-    instructions: 'удалить или исключить javax зависимости из pom'
+    instructions: удалить или исключить javax зависимости из pom
     compatible: false
 
 -   name: 2.0.0
