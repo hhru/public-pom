@@ -215,6 +215,17 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 </executions>
             </plugin>
             <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.44.4</version>
+                <configuration>
+                    <java>
+                        <removeUnusedImports/>
+                        <endWithNewline/>
+                    </java>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>ru.hh.checkstyle</groupId>
                 <artifactId>hh-maven-checkstyle-plugin</artifactId>
                 <configuration>
