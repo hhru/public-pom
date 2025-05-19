@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>2.0.1.spring-boot-rc2-SNAPSHOT</version>
+    <version>2.1.1.spring-boot-rc1-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -48,6 +48,7 @@
         <jakarta-inject.version>2.0.1</jakarta-inject.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-collections4.version>4.4</commons-collections4.version>
+        <commons-pool2.version>2.12.1</commons-pool2.version>
         <openrewrite.version>2.20.0</openrewrite.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
@@ -225,6 +226,17 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.44.4</version>
+                <configuration>
+                    <java>
+                        <removeUnusedImports/>
+                        <endWithNewline/>
+                    </java>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>ru.hh.checkstyle</groupId>
