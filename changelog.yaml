@@ -1,3 +1,9 @@
+-   name: 2.1.0
+    date: '2025-05-19T11:40:24.514081+03:00'
+    description: Добавлено переопределение версии commons-pool2
+    instructions: ''
+    compatible: true
+
 -   name: 2.0.2
     date: '2025-04-24T20:39:35.960519+03:00'
     description: Добавили `com.diffplug.spotless:spotless-maven-plugin`, который запускается
