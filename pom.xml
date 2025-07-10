@@ -31,6 +31,8 @@
         <hibernate.version>6.3.1.Final</hibernate.version>
         <!-- TODO: rm me after jackson will be upped in spring-boot-dependencies -->
         <jackson-bom.version>2.16.2</jackson-bom.version>
+        <!-- TODO: remove when migration to JDK 25 and spring-boot-dependencies 3.4.x+ -->
+        <mockito.version>5.18.0</mockito.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
@@ -113,6 +115,13 @@
                     <configuration>
                         <printSummary>true</printSummary>
                         <trimStackTrace>false</trimStackTrace>
+                        <systemPropertyVariables>
+                            <!-- TODO: remove property when dependencies of these versions or above ( workaround for JDK 22-25 )
+                                <mockito.version>5.18.0</mockito.version>
+                                <byte-buddy.version>1.17.6</byte-buddy.version>
+                             -->
+                            <net.bytebuddy.experimental>true</net.bytebuddy.experimental>
+                        </systemPropertyVariables>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -291,6 +300,21 @@ https://mattermost.pyn.ru/hhru/channels/platform .
     -->
     <dependencyManagement>
         <dependencies>
+            <!-- TODO: remove when migration to JDK 25 and spring-boot-dependencies 3.4.x+ -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>6.2.8</version>
+                <scope>compile</scope>
+            </dependency>
+            <!-- TODO: remove when migration to JDK 25 and spring-boot-dependencies 3.4.x+ -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-bom</artifactId>
+                <version>${mockito.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-recipe-bom</artifactId>
