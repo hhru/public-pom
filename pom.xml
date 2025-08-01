@@ -23,7 +23,7 @@
     <groupId>ru.hh.public-pom</groupId>
     <artifactId>public-pom</artifactId>
     <packaging>pom</packaging>
-    <version>2.1.1-SNAPSHOT</version>
+    <version>2.1.0.spring-boot-rc2-SNAPSHOT</version>
     <name>hh.ru common public project descriptor</name>
 
     <properties>
@@ -193,6 +193,18 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                         </scanExcludeClasses>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>build-properties-generation</id>
+                            <goals>
+                                <goal>build-info</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -221,8 +233,8 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>2.44.4</version>
                 <configuration>
                     <java>
-                        <removeUnusedImports/>
-                        <endWithNewline/>
+                        <removeUnusedImports />
+                        <endWithNewline />
                     </java>
                 </configuration>
             </plugin>
