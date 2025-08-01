@@ -1,3 +1,13 @@
+-   name: 2.1.1
+    date: '2025-08-01T11:09:30.978583+03:00'
+    description: "В pluginManagement добавлен spring-boot-maven-plugin. После подключения\
+        \ spring-boot-maven-plugin'а в помник \r\nвашего проекта при его сборке будет\
+        \ генерироваться файл META-INF/build-info.properties, содержащий различную\
+        \ информацию \r\nо билде (например, название артефакта, версия, время сборки\
+        \ и тд)"
+    instructions: ''
+    compatible: true
+
 -   name: 2.1.0
     date: '2025-05-19T11:40:24.514081+03:00'
     description: Добавлено переопределение версии commons-pool2
