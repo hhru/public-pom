@@ -17,7 +17,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.12</version>
     </parent>
 
     <groupId>ru.hh.public-pom</groupId>
@@ -27,18 +27,13 @@
     <name>hh.ru common public project descriptor</name>
 
     <properties>
-        <!-- TODO: rm me after spring-boot-dependencies:3.2.0 release -->
-        <hibernate.version>6.3.1.Final</hibernate.version>
         <!-- TODO: rm me after jackson will be upped in spring-boot-dependencies -->
         <jackson-bom.version>2.16.2</jackson-bom.version>
 
         <maven-compiler.release.version>17</maven-compiler.release.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
-        <maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
-        <maven-deploy-plugin.version>3.0.0-M1</maven-deploy-plugin.version>
-        <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
         <hh-maven-checkstyle-plugin.version>2.0.0</hh-maven-checkstyle-plugin.version>
         <wagon-webdav.version>1.0-beta-2</wagon-webdav.version>
@@ -52,7 +47,7 @@
         <openrewrite.version>2.20.0</openrewrite.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
-        <minio.version>8.3.5</minio.version>
+        <minio.version>8.5.12</minio.version>
     </properties>
 
     <build>
@@ -105,7 +100,6 @@
                         <encoding>UTF-8</encoding>
                         <showWarnings>true</showWarnings>
                         <showDeprecation>true</showDeprecation>
-                        <parameters>true</parameters>
                     </configuration>
                 </plugin>
                 <plugin>
