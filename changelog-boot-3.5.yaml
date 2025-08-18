@@ -1,0 +1,70 @@
+-   name: 2.1.1.boot-3.5-alpha1
+    date: '2025-08-26T18:00:00.000000+03:00'
+    description: |
+        1. Обновление spring-boot-dependencies до 3.2.12 
+        2. Удаление опции -parameters при компиляции
+    instructions: |
+        1. Если при поднятии контекста Spring теперь находит больше одного бина и падает с ошибкой, значит были завязки на имя параметра
+           метода/конструктора, которые обязаны были совпадать с именем бина в старой версии. Такие места необходимо отрефакторить, например, с
+           помощью объявления квалификаторов.
+        2. Если вы использовали библиотеку org.yaml:snakeyaml версии меньше 2.2, то понадобится миграция на 2.2; Подробнее
+           https://bitbucket.org/snakeyaml/snakeyaml/wiki/Changes.
+        3. Обновление Spring Framework до 6.1.15. Мигрировать в соответствии с Release notes:
+           https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes.
+           Из основных изменений:
+           3.1. Если использовался статический метод org.springframework.http.HttpMethod.resolve, то его надо заменить на
+                org.springframework.http.HttpMethod.valueOf. Разница в том, что в последнем больше нельзя передавать null - сделайте проверку
+                самостоятельно если требуется.  
+           3.2. Если использовался метод org.springframework.http.HttpRequest.getMethodValue(), то его надо заменить на
+                org.springframework.http.HttpRequest.getMethod().name().
+           3.3. Если использовали org.springframework.http.client.HttpComponentsClientHttpRequestFactory.setReadTimeout(int), то теперь вместо него
+                надо передавать предварительно настроенный HttpClient в конструкторе HttpComponentsClientHttpRequestFactory(HttpClient). В цепочке
+                настройки необходимо вызвать SocketConfig.Builder.setSoTimeout(Timeout) для правильного SocketConfig, после чего пробросить его в
+                org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder.setDefaultSocketConfig(SocketConfig), затем connection
+                manager в org.apache.hc.client5.http.impl.classic.HttpClientBuilder.setConnectionManager(HttpClientConnectionManager).
+           3.4. Если использовался метод org.springframework.http.client.reactive.ClientHttpResponse.getRawStatusCode(), то его надо заменить на
+                org.springframework.http.client.reactive.ClientHttpResponse.getStatusCode().value().
+           3.5. Удалено несколько конструкторов в org.springframework.web.HttpRequestMethodNotSupportedException; если использовали их, то замените
+                на HttpRequestMethodNotSupportedException(String, Collection).
+        4. Обновление Spring Boot до 3.2.12. Мигрировать в соответствии с Release notes:
+           https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes.
+           Из основных изменений:
+           4.1. Если в ваших настройках была строка 'spring.mvc.throw-exception-if-no-handler-found' - её надо удалить.
+           4.2. Если в ваших настройках была строка 'spring.mvc.ignore-default-model-on-redirect' - её надо удалить и мигрировать на
+                RedirectAttributes; Подробнее про RedirectAttributes -
+                https://docs.spring.io/spring-framework/docs/6.0.15/javadoc-api/org/springframework/web/servlet/mvc/support/RedirectAttributes.html.
+        5. Обновление Jetty до 12.0.15. Мигрировать в соответствии с гайдом:
+           https://jetty.org/docs/jetty/12/programming-guide/migration/11-to-12.html.
+           Из основных изменений:
+           5.1.  Если использовалась зависимость org.eclipse.jetty.websocket:websocket-jakarta-server, то её надо заменить на
+                 org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jakarta-server.
+           5.2.  Если использовалась зависимость org.eclipse.jetty.websocket:websocket-jetty-server, то вместо неё надо добавить 2 артефакта
+                 org.eclipse.jetty.websocket:jetty-websocket-jetty-server и org.eclipse.jetty.ee10.websocket:jetty-ee10-websocket-jetty-server.
+           5.3.  Если использовалась зависимость org.eclipse.jetty:apache-jsp, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-apache-jsp.
+           5.4.  Если использовалась зависимость org.eclipse.jetty:jetty-annotations, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-annotations.
+           5.5.  Если использовалась зависимость org.eclipse.jetty:jetty-jspc-maven-plugin, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-jspc-maven-plugin.
+           5.6.  Если использовалась зависимость org.eclipse.jetty:jetty-maven-plugin, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-maven-plugin.
+           5.7.  Если использовалась зависимость org.eclipse.jetty:jetty-plus, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-plus.
+           5.8.  Если использовалась зависимость org.eclipse.jetty:jetty-runner, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-runner.
+           5.9.  Если использовалась зависимость org.eclipse.jetty:jetty-servlet, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-servlet.
+           5.10. Если использовалась зависимость org.eclipse.jetty:jetty-webapp, то её надо заменить на
+                 org.eclipse.jetty.ee10:jetty-ee10-webapp.
+           5.11. Обновить import'ы.
+        6. Обновление Hibernate до 6.4.10.Final. Мигрировать в соответствии с гайдом:
+           https://docs.jboss.org/hibernate/orm/6.4/migration-guide/migration-guide.html.
+           Из основных изменений:
+           6.1. Если аннотация @GeneratedValue навешивается на поле, на котором нет аннотации @Id, то @GeneratedValue нужно удалить.
+        7. Обновление Jedis c 4.3.2 до 5.0.3. Мигрировать в соответствии с changelog:
+           https://github.com/redis/jedis/releases.
+        8. Обновление JUnit до 5.10.5. Мигрировать в соответствии с Release notes:
+           https://docs.junit.org/5.10.5/release-notes/#release-notes-5.10.0
+        9. Обновление OpenTelemetry c 1.25.0 до 1.31.0. Мигрировать в соответствии с changelog:
+           https://github.com/open-telemetry/opentelemetry-java/releases
+    compatible: false
