@@ -1,15 +1,16 @@
 -   name: 2.1.1.boot-3.5-alpha1
-    date: '2025-08-26T18:00:00.000000+03:00'
+    date: '2025-08-03T14:00:00.000000+03:00'
     description: |
-        1. Обновление spring-boot-dependencies до 3.2.12 
-        2. Удаление опции -parameters при компиляции
+        1. Обновление spring-boot-dependencies до 3.3.13
+        2. Обновление Dropwizard Metrics до 4.2.37
+        3. Удаление опции -parameters при компиляции
     instructions: |
         1. Если при поднятии контекста Spring теперь находит больше одного бина и падает с ошибкой, значит были завязки на имя параметра
            метода/конструктора, которые обязаны были совпадать с именем бина в старой версии. Такие места необходимо отрефакторить, например, с
            помощью объявления квалификаторов.
         2. Если вы использовали библиотеку org.yaml:snakeyaml версии меньше 2.2, то понадобится миграция на 2.2; Подробнее
            https://bitbucket.org/snakeyaml/snakeyaml/wiki/Changes.
-        3. Обновление Spring Framework до 6.1.15. Мигрировать в соответствии с Release notes:
+        3. Обновление Spring Framework до 6.1.21. Мигрировать в соответствии с Release notes:
            https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes.
            Из основных изменений:
            3.1. Если использовался статический метод org.springframework.http.HttpMethod.resolve, то его надо заменить на
@@ -26,14 +27,16 @@
                 org.springframework.http.client.reactive.ClientHttpResponse.getStatusCode().value().
            3.5. Удалено несколько конструкторов в org.springframework.web.HttpRequestMethodNotSupportedException; если использовали их, то замените
                 на HttpRequestMethodNotSupportedException(String, Collection).
-        4. Обновление Spring Boot до 3.2.12. Мигрировать в соответствии с Release notes:
-           https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes.
+        4. Обновление Spring Boot до 3.3.13 Мигрировать в соответствии с Release notes:
+           https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes
+           https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes
+           При этом игнорируйте, что dependency management для Dropwizard Metrics удалён. Management сохранён на уровне public-pom. 
            Из основных изменений:
            4.1. Если в ваших настройках была строка 'spring.mvc.throw-exception-if-no-handler-found' - её надо удалить.
            4.2. Если в ваших настройках была строка 'spring.mvc.ignore-default-model-on-redirect' - её надо удалить и мигрировать на
                 RedirectAttributes; Подробнее про RedirectAttributes -
                 https://docs.spring.io/spring-framework/docs/6.0.15/javadoc-api/org/springframework/web/servlet/mvc/support/RedirectAttributes.html.
-        5. Обновление Jetty до 12.0.15. Мигрировать в соответствии с гайдом:
+        5. Обновление Jetty до 12.0.22. Мигрировать в соответствии с гайдом:
            https://jetty.org/docs/jetty/12/programming-guide/migration/11-to-12.html.
            Из основных изменений:
            5.1.  Если использовалась зависимость org.eclipse.jetty.websocket:websocket-jakarta-server, то её надо заменить на
@@ -57,14 +60,40 @@
            5.10. Если использовалась зависимость org.eclipse.jetty:jetty-webapp, то её надо заменить на
                  org.eclipse.jetty.ee10:jetty-ee10-webapp.
            5.11. Обновить import'ы.
-        6. Обновление Hibernate до 6.4.10.Final. Мигрировать в соответствии с гайдом:
-           https://docs.jboss.org/hibernate/orm/6.4/migration-guide/migration-guide.html.
+        6. Обновление Hibernate до 6.5.3.Final. Мигрировать в соответствии с гайдами:
+           https://docs.jboss.org/hibernate/orm/6.4/migration-guide/migration-guide.html,
+           https://docs.jboss.org/hibernate/orm/6.5/migration-guide/migration-guide.html.
            Из основных изменений:
            6.1. Если аннотация @GeneratedValue навешивается на поле, на котором нет аннотации @Id, то @GeneratedValue нужно удалить.
+           6.2. Перейти на новый стиль id generator'ов
+                Было:
+                @GeneratedValue(generator = "my_seq_gen")
+                @GenericGenerator(
+                  name = "my_seq_gen",
+                  strategy = "sequence",
+                  parameters = {
+                    @Parameter(name = SequenceStyleGenerator.SEQUENCE_PARAM, value = "my_sequence"),
+                    @Parameter(name = SequenceStyleGenerator.INCREMENT_PARAM, value = "1")
+                  }
+                )
+                Стало:
+                @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq_gen")
+                @SequenceGenerator(name = "my_seq_gen", sequenceName = "my_sequence", allocationSize = 1)
+                Было:
+                @GeneratedValue(generator = "uuid")
+                @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+                Стало:
+                @UuidGenerator
+                Для остальных стратегий смотри Javadoc IdGeneratorType
+           6.3. Найти использования ResultCheckStyle и заменить на Expectation
+                Было:
+                @SQLInsert(check=ResultCheckStyle.COUNT)
+                Стало:
+                @SQLInsert(verify=Expectation.RowCount.class)
         7. Обновление Jedis c 4.3.2 до 5.0.3. Мигрировать в соответствии с changelog:
            https://github.com/redis/jedis/releases.
         8. Обновление JUnit до 5.10.5. Мигрировать в соответствии с Release notes:
            https://docs.junit.org/5.10.5/release-notes/#release-notes-5.10.0
-        9. Обновление OpenTelemetry c 1.25.0 до 1.31.0. Мигрировать в соответствии с changelog:
+        9. Обновление OpenTelemetry c 1.25.0 до 1.38.0. Мигрировать в соответствии с changelog:
            https://github.com/open-telemetry/opentelemetry-java/releases
     compatible: false
