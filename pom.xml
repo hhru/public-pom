@@ -17,7 +17,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.3.13</version>
+        <version>3.4.9</version>
     </parent>
 
     <groupId>ru.hh.public-pom</groupId>
@@ -36,9 +36,10 @@
         <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
         <smallrye-open-api-maven-plugin.version>3.7.0-hh</smallrye-open-api-maven-plugin.version>
 
-        <opentelemetry.jdbc.version>2.4.0-alpha</opentelemetry.jdbc.version>
+        <okhttp.version>4.12.0</okhttp.version>
+        <opentelemetry.jdbc.version>2.9.0-alpha</opentelemetry.jdbc.version>
         <opentelemetry.semconv.version>1.30.1-alpha</opentelemetry.semconv.version>
-        <commons-io.version>2.15.1</commons-io.version>
+        <commons-io.version>2.16.1</commons-io.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <dropwizard-metrics.version>4.2.37</dropwizard-metrics.version>
         <openrewrite.version>2.20.0</openrewrite.version>
@@ -286,6 +287,14 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>org.openrewrite.recipe</groupId>
                 <artifactId>rewrite-recipe-bom</artifactId>
                 <version>${openrewrite.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp-bom</artifactId>
+                <version>${okhttp.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
