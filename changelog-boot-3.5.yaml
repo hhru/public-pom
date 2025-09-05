@@ -1,7 +1,7 @@
 -   name: 2.1.1.boot-3.5-alpha1
-    date: '2025-08-03T18:00:00.000000+03:00'
+    date: '2025-08-05T18:00:00.000000+03:00'
     description: |
-        1. Обновление spring-boot-dependencies до 3.4.9
+        1. Обновление spring-boot-dependencies до 3.5.5
         2. Обновление Dropwizard Metrics до 4.2.37
         3. Обновление OkHttp до 4.12.0
         4. Удаление опции -parameters при компиляции
@@ -30,10 +30,11 @@
             5. Удалено несколько конструкторов в org.springframework.web.HttpRequestMethodNotSupportedException; если использовали их, то замените
                на HttpRequestMethodNotSupportedException(String, Collection).
             6. Замена аннотаций @MockBean и @SpyBean на @MockitoBean и @MockitoSpyBean соответственно.
-         4. Обновление Spring Boot до 3.4.9 Мигрировать в соответствии с Release notes:
+         4. Обновление Spring Boot до 3.5.5 Мигрировать в соответствии с Release notes:
             https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes,
             https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.3-Release-Notes,
-            https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes.
+            https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.4-Release-Notes,
+            https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.5-Release-Notes.
             При этом игнорируйте, что dependency management для Dropwizard Metrics и OkHttp удалены. Management сохранён на уровне public-pom.
             Из основных изменений:
             1. Если в ваших настройках была строка 'spring.mvc.throw-exception-if-no-handler-found' - её надо удалить.
@@ -101,13 +102,77 @@
                @SQLInsert(check=ResultCheckStyle.COUNT)
                Стало:
                @SQLInsert(verify=Expectation.RowCount.class)
-         8. Обновление Jedis c 4.3.2 до 5.0.3. Мигрировать в соответствии с changelog:
+         8. Обновление Jedis c 4.3.2 до 6.0.0. Мигрировать в соответствии с changelog:
             https://github.com/redis/jedis/releases.
-         9. Обновление JUnit до 5.11.4. Мигрировать в соответствии с Release notes, начиная с версии 5.10.0:
+         9. Обновление JUnit до 5.12.2. Мигрировать в соответствии с Release notes, начиная с версии 5.10.0:
             https://docs.junit.org/5.10.5/release-notes/#release-notes-5.10.5,
-            https://docs.junit.org/5.11.4/release-notes/#release-notes-5.11.4
-        10. Обновление OpenTelemetry c 1.25.0 до 1.43.0. Мигрировать в соответствии с changelog:
+            https://docs.junit.org/5.11.4/release-notes/#release-notes-5.11.4,
+            https://docs.junit.org/5.12.2/release-notes/#release-notes-5.12.2.
+        10. Обновление OpenTelemetry c 1.25.0 до 1.49.0. Мигрировать в соответствии с changelog:
             https://github.com/open-telemetry/opentelemetry-java/releases
-        11. Обновление Testcontainers с 1.18.0 до 1.20.6.
+        11. Если есть зависимость "io.opentelemetry:opentelemetry-semconv", то вместо неё надо использовать
+            "io.opentelemetry.semconv:opentelemetry-semconv-incubating".
+            При этом новая зависимость больше не содержит транзитивную io.opentelemetry:opentelemetry-api.
+            Если есть ошибки компиляции - добавьте её отдельно.
+            Для каждого из старых атрибутов io.opentelemetry:opentelemetry-semconv необходимо найти аналог в
+            io.opentelemetry.semconv:opentelemetry-semconv (тянется транзитивно из incubating) и
+            io.opentelemetry.semconv:opentelemetry-semconv-incubating и использовать его вместо старого.
+            При этом внутреннее значение внутри атрибутов также может меняться. Если требуется обратная совместимость для переходного периода,
+            то можно использовать одновременно 2 атрибута. Старый в этом случае необходимо реализовать самостоятельно.
+            Основные атрибуты:
+             1. Вместо SemanticAttributes.CODE_FUNCTION и SemanticAttributes.CODE_NAMESPACE нужно использовать 1 общий атрибут
+                CodeAttributes.CODE_FUNCTION_NAME. Смотри подробнее в Javadoc как они соотносятся.
+                Внутренние значения МЕНЯЮТСЯ.
+             2. Вместо текстового атрибута "destination.address" нужно использовать DestinationIncubatingAttributes.DESTINATION_ADDRESS.
+                Внутреннее значение НЕ меняется.
+             3. Вместо SemanticAttributes.HOST_NAME нужно использовать HostIncubatingAttributes.HOST_NAME.
+                Внутреннее значение НЕ меняется.
+             4. Вместо SemanticAttributes.HTTP_CLIENT_IP нужно использовать ClientAttributes.CLIENT_ADDRESS.
+                Внутреннее значение МЕНЯЕТСЯ.
+             5. Вместо SemanticAttributes.HTTP_HOST нужно использовать ServerAttributes.SERVER_ADDRESS.
+                Внутреннее значение МЕНЯЕТСЯ.
+             6. Вместо SemanticAttributes.HTTP_METHOD нужно использовать HttpAttributes.HTTP_REQUEST_METHOD.
+                Внутреннее значение МЕНЯЕТСЯ.
+             7. Вместо SemanticAttributes.HTTP_ROUTE нужно использовать HttpAttributes.HTTP_ROUTE.
+                Внутреннее значение НЕ меняется.
+             8. Вместо SemanticAttributes.HTTP_SCHEME нужно использовать UrlAttributes.URL_SCHEME.
+                Внутреннее значение МЕНЯЕТСЯ.
+             9. Вместо SemanticAttributes.HTTP_STATUS_CODE нужно использовать HttpAttributes.HTTP_RESPONSE_STATUS_CODE.
+                Внутреннее значение МЕНЯЕТСЯ.
+            10. Вместо SemanticAttributes.HTTP_TARGET нужно использовать 2 атрибута: UrlAttributes.URL_PATH и UrlAttributes.URL_QUERY.
+                Смотри подробнее в Javadoc как они соотносятся.
+                Внутренние значения МЕНЯЮТСЯ.
+            11. Вместо SemanticAttributes.HTTP_URL нужно использовать UrlAttributes.URL_FULL.
+                Внутреннее значение МЕНЯЕТСЯ.
+            12. SemanticAttributes.MESSAGING_DESTINATION_KIND удаляется без замены.
+                Больше не используйте его или сделайте собственный признак при необходимости.
+            13. Вместо SemanticAttributes.MESSAGING_DESTINATION_NAME нужно использовать MessagingIncubatingAttributes.MESSAGING_DESTINATION_NAME.
+                Внутреннее значение НЕ меняется.
+            14. Вместо SemanticAttributes.MESSAGING_KAFKA_CONSUMER_GROUP нужно использовать
+                MessagingIncubatingAttributes.MESSAGING_CONSUMER_GROUP_NAME. Внутреннее значение НЕ меняется.
+            15. Вместо SemanticAttributes.MESSAGING_KAFKA_CLIENT_ID нужно использовать MessagingIncubatingAttributes.MESSAGING_CLIENT_ID.
+                Внутреннее значение НЕ меняется.
+            16. Вместо SemanticAttributes.MESSAGING_KAFKA_MESSAGE_KEY нужно использовать MessagingIncubatingAttributes.MESSAGING_KAFKA_MESSAGE_KEY.
+                Внутреннее значение НЕ меняется.
+            17. Вместо SemanticAttributes.MESSAGING_OPERATION нужно использовать MessagingIncubatingAttributes.MESSAGING_OPERATION_TYPE.
+                Внутреннее значение МЕНЯЕТСЯ.
+                При этом константы для значений тоже меняются: вместо SemanticAttributes.MessagingOperationValues надо использовать
+                MessagingIncubatingAttributes.MessagingOperationTypeIncubatingValues
+            18. Вместо SemanticAttributes.MESSAGING_SYSTEM нужно использовать MessagingIncubatingAttributes.MESSAGING_SYSTEM.
+                Внутреннее значение НЕ меняется.    
+            19. Вместо SemanticAttributes.PEER_SERVICE нужно использовать PeerIncubatingAttributes.PEER_SERVICE.
+                Внутреннее значение НЕ меняется.
+            20. Вместо ResourceAttributes.SERVICE_NAME нужно использовать ServiceAttributes.SERVICE_NAME.
+                Внутреннее значение НЕ меняется.
+            21. Вместо ResourceAttributes.SERVICE_VERSION нужно использовать ServiceAttributes.SERVICE_VERSION.
+                Внутреннее значение НЕ меняется.
+            22. Вместо текстового атрибута "user_agent.original" нужно использовать UserAgentAttributes.USER_AGENT_ORIGINAL.
+                Внутреннее значение НЕ меняется.
+        12. Обновление opentelemetry-jdbc с 1.35.0-alpha до 2.15.0-alpha. Мигрировать в соответствии с changelog:
+            https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases
+        13. Обновление Elasticsearch Client с 8.7.1 до 8.18.5. Мигрировать в соответствии с Release highlights:
+            https://www.elastic.co/guide/en/elasticsearch/client/java-api-client/8.18/release-highlights.html
+        14. Обновление Testcontainers с 1.18.0 до 1.21.3.
             Теперь testcontainers-redis добавлен в bom-файл - удалите версию если использовали этот артефакт в ваших зависимостях.
+        15. Переменная wagon-webdav.version удалена. Объявите её явно в своём коде со значением 1.0-beta-2 если требуется.
     compatible: false
