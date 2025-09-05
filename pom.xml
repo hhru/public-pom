@@ -17,7 +17,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>3.4.9</version>
+        <version>3.5.5</version>
     </parent>
 
     <groupId>ru.hh.public-pom</groupId>
@@ -28,19 +28,18 @@
 
     <properties>
         <maven-compiler.release.version>17</maven-compiler.release.version>
-        <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+        <exec-maven-plugin.version>3.5.1</exec-maven-plugin.version>
         <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <hh-maven-checkstyle-plugin.version>2.0.0</hh-maven-checkstyle-plugin.version>
-        <wagon-webdav.version>1.0-beta-2</wagon-webdav.version>
-        <jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
+        <jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
         <smallrye-open-api-maven-plugin.version>3.7.0-hh</smallrye-open-api-maven-plugin.version>
 
         <okhttp.version>4.12.0</okhttp.version>
-        <opentelemetry.jdbc.version>2.9.0-alpha</opentelemetry.jdbc.version>
-        <opentelemetry.semconv.version>1.30.1-alpha</opentelemetry.semconv.version>
-        <commons-io.version>2.16.1</commons-io.version>
-        <commons-collections4.version>4.4</commons-collections4.version>
+        <opentelemetry.jdbc.version>2.15.0-alpha</opentelemetry.jdbc.version>
+        <opentelemetry.semconv.version>1.37.0</opentelemetry.semconv.version>
+        <commons-io.version>2.17.0</commons-io.version>
+        <commons-collections4.version>4.5.0</commons-collections4.version>
         <dropwizard-metrics.version>4.2.37</dropwizard-metrics.version>
         <openrewrite.version>2.20.0</openrewrite.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
@@ -305,7 +304,7 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <version>${opentelemetry.jdbc.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.opentelemetry</groupId>
+                <groupId>io.opentelemetry.semconv</groupId>
                 <artifactId>opentelemetry-semconv</artifactId>
                 <version>${opentelemetry.semconv.version}</version>
             </dependency>
@@ -326,7 +325,6 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <artifactId>commons-collections4</artifactId>
                 <version>${commons-collections4.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>com.scylladb</groupId>
                 <artifactId>java-driver-bom</artifactId>
