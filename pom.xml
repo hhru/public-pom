@@ -52,7 +52,7 @@
         <openrewrite.version>2.20.0</openrewrite.version>
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
-        <minio.version>8.3.5</minio.version>
+        <minio.version>8.6.0</minio.version>
     </properties>
 
     <build>
