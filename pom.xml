@@ -35,10 +35,6 @@
         <jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
         <smallrye-open-api-maven-plugin.version>3.7.0-hh</smallrye-open-api-maven-plugin.version>
 
-        <!-- TODO Override to fix https://nvd.nist.gov/vuln/detail/CVE-2025-58056 vulnerability -->
-        <!-- TODO Remove this override when spring-boot-dependencies will have newer version -->
-        <netty.version>4.1.125.Final</netty.version>
-
         <okhttp.version>4.12.0</okhttp.version>
         <opentelemetry.jdbc.version>2.15.0-alpha</opentelemetry.jdbc.version>
         <opentelemetry.semconv.version>1.37.0</opentelemetry.semconv.version>
