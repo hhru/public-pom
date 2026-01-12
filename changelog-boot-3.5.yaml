@@ -1,9 +1,10 @@
 -   name: 2.1.1.boot-3.5-alpha4
     date: '2025-12-23T19:00:00.000000+03:00'
-    description: 'org.caffinitas.ohc:ohc-core добавлена в dependencyManagement'
+    description: 'org.caffinitas.ohc:ohc-core и com.datadoghq:java-dogstatsd-client добавлены в dependencyManagement'
     instructions: |
         - предварительно обновите ohc-core до версии 0.7.4
-        - удалите версию для ohc-core в вашем pom-файле
+        - предварительно обновите java-dogstatsd-client до версии 4.4.5
+        - удалите версию для ohc-core и java-dogstatsd-client в вашем pom-файле
     compatible: false
 
 -   name: 2.1.1.boot-3.5-alpha3
