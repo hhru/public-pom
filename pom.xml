@@ -66,6 +66,7 @@
 
         <guava.version>31.0.1-jre</guava.version>
         <checker-qual.version>3.49.3</checker-qual.version>
+        <snappy.version>1.1.10.7</snappy.version>
     </properties>
 
     <build>
@@ -485,6 +486,14 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>org.checkerframework</groupId>
                 <artifactId>checker-qual</artifactId>
                 <version>${checker-qual.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override org.apache.kafka:kafka-clients.
+                   Remove it when org.apache.kafka:kafka-clients will have new version. -->
+            <dependency>
+                <groupId>org.xerial.snappy</groupId>
+                <artifactId>snappy-java</artifactId>
+                <version>${snappy.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
