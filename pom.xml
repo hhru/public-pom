@@ -65,6 +65,7 @@
         <asm.version>9.8</asm.version>
 
         <guava.version>31.0.1-jre</guava.version>
+        <checker-qual.version>3.49.3</checker-qual.version>
     </properties>
 
     <build>
@@ -474,6 +475,16 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override com.google.guava:guava.
+                   Remove it when com.google.guava:guava will have new version
+                   (guava is used transitively at least in org.postgres:postgresql, com.fasterxml.jackson.datatype:jackson-datatype-guava,
+                   org.caffinatas.ohc:ohc-core). -->
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>${checker-qual.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
