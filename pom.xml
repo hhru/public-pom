@@ -63,6 +63,8 @@
         <ohc.core.version>0.7.4</ohc.core.version>
         <jna.version>5.13.0</jna.version>
         <asm.version>9.8</asm.version>
+
+        <guava.version>31.0.1-jre</guava.version>
     </properties>
 
     <build>
@@ -464,6 +466,14 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>com.github.jnr</groupId>
                 <artifactId>jnr-posix</artifactId>
                 <version>${jnr-posix.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override com.fasterxml.jackson.datatype:jackson-datatype-guava.
+                   Remove it when com.fasterxml.jackson.datatype:jackson-datatype-guava will have new version. -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
