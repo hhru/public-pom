@@ -1,3 +1,12 @@
+-   name: 2.1.1.boot-3.5-alpha4
+    date: '2025-12-23T19:00:00.000000+03:00'
+    description: 'org.caffinitas.ohc:ohc-core и com.datadoghq:java-dogstatsd-client добавлены в dependencyManagement'
+    instructions: |
+        - предварительно обновите ohc-core до версии 0.7.4
+        - предварительно обновите java-dogstatsd-client до версии 4.4.5
+        - удалите версию для ohc-core и java-dogstatsd-client в вашем pom-файле
+    compatible: false
+
 -   name: 2.1.1.boot-3.5-alpha3
     date: '2025-12-17T19:00:00.000000+03:00'
     description: Даунгрейд Netty до 4.1.124.Final
@@ -90,7 +99,7 @@
             2. Убедиться, что в LoggerContext установлен MDCAdapter -> адаптер по умолчанию из старых версий:
                context.setMDCAdapter((LogbackMDCAdapter) MDC.getMDCAdapter());
                Подробнее https://github.com/spring-projects/spring-boot/issues/36177.
-         7. Обновление Hibernate до 6.5.3.Final. Мигрировать в соответствии с гайдами:
+         7. Обновление Hibernate до 6.6.26.Final. Мигрировать в соответствии с гайдами:
             https://docs.jboss.org/hibernate/orm/6.4/migration-guide/migration-guide.html,
             https://docs.jboss.org/hibernate/orm/6.5/migration-guide/migration-guide.html,
             https://docs.jboss.org/hibernate/orm/6.6/migration-guide/migration-guide.html

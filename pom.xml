@@ -35,7 +35,10 @@
         <jib-maven-plugin.version>3.4.6</jib-maven-plugin.version>
         <smallrye-open-api-maven-plugin.version>3.7.0-hh</smallrye-open-api-maven-plugin.version>
 
+        <!-- TODO check org.jetbrains:annotations override on next update -->
         <okhttp.version>4.12.0</okhttp.version>
+        <jetbrains.annotations.version>17.0.0</jetbrains.annotations.version>
+
         <opentelemetry.jdbc.version>2.15.0-alpha</opentelemetry.jdbc.version>
         <opentelemetry.semconv.version>1.37.0</opentelemetry.semconv.version>
         <commons-io.version>2.17.0</commons-io.version>
@@ -45,6 +48,25 @@
         <scylladb.java-driver.version>4.15.0.1</scylladb.java-driver.version>
         <sentry.version>7.2.0</sentry.version>
         <minio.version>8.5.17</minio.version>
+
+        <!-- TODO check org.ow2.asm:asm, org.ow2.asm:asm-commons, org.ow2.asm:asm-analysis, org.ow2.asm:asm-tree, org.ow2.asm:asm-util,
+               com.github.jnr:jnr-unixsocket, com.github.jnr:jnr-ffi, com.github.jnr:jnr-constants, com.github.jnr:jnr-enxio, com.github.jnr:jnr-posix
+               overrides on next update -->
+        <dogstatsd.version>4.4.5</dogstatsd.version>
+        <jnr-unixsocket.version>0.38.24</jnr-unixsocket.version>
+        <jnr-ffi.version>2.2.18</jnr-ffi.version>
+        <jnr-constants.version>0.10.4</jnr-constants.version>
+        <jnr-enxio.version>0.32.19</jnr-enxio.version>
+        <jnr-posix.version>3.1.21</jnr-posix.version>
+
+        <!-- TODO check net.java.dev.jna:jna and org.ow2.asm:asm override on next update -->
+        <ohc.core.version>0.7.4</ohc.core.version>
+        <jna.version>5.13.0</jna.version>
+        <asm.version>9.8</asm.version>
+
+        <guava.version>31.0.1-jre</guava.version>
+        <checker-qual.version>3.49.3</checker-qual.version>
+        <snappy.version>1.1.10.7</snappy.version>
     </properties>
 
     <build>
@@ -297,6 +319,12 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <!-- TODO Override for com.squareup.okhttp3:okhttp. Remove it when new version will appear in the com.squareup.okhttp3:okhttp -->
+                <groupId>org.jetbrains</groupId>
+                <artifactId>annotations</artifactId>
+                <version>${jetbrains.annotations.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>io.opentelemetry.instrumentation</groupId>
@@ -348,6 +376,124 @@ https://mattermost.pyn.ru/hhru/channels/platform .
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.datadoghq</groupId>
+                <artifactId>java-dogstatsd-client</artifactId>
+                <version>${dogstatsd.version}</version>
+            </dependency>
+
+            <!--cache-->
+            <dependency>
+                <groupId>org.caffinitas.ohc</groupId>
+                <artifactId>ohc-core</artifactId>
+                <version>${ohc.core.version}</version>
+            </dependency>
+            <!-- TODO This dependency is not intended to be used directly but to override org.caffinitas.ohc:ohc-core.
+                   Remove it when org.caffinitas.ohc:ohc-core will have new version. -->
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <!-- TODO This dependency is not intended to be used directly but to override org.caffinitas.ohc:ohc-core,
+                       com.datadoghq:java-dogstatsd-client.
+                       Remove it when org.caffinitas.ohc:ohc-core & com.datadoghq:java-dogstatsd-client will have new version. -->
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                       Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-commons</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                       Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-analysis</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                       Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-tree</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+            <dependency>
+                <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                       Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm-util</artifactId>
+                <version>${asm.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                   Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-unixsocket</artifactId>
+                <version>${jnr-unixsocket.version}</version>
+            </dependency>
+            <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                   Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-ffi</artifactId>
+                <version>${jnr-ffi.version}</version>
+            </dependency>
+            <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                   Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-constants</artifactId>
+                <version>${jnr-constants.version}</version>
+            </dependency>
+            <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                   Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-enxio</artifactId>
+                <version>${jnr-enxio.version}</version>
+            </dependency>
+            <!-- TODO This dependency is not intended to be used directly but to override com.datadoghq:java-dogstatsd-client.
+                   Remove it when com.datadoghq:java-dogstatsd-client will have new version. -->
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-posix</artifactId>
+                <version>${jnr-posix.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override com.fasterxml.jackson.datatype:jackson-datatype-guava.
+                   Remove it when com.fasterxml.jackson.datatype:jackson-datatype-guava will have new version. -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override com.google.guava:guava.
+                   Remove it when com.google.guava:guava will have new version
+                   (guava is used transitively at least in org.postgres:postgresql, com.fasterxml.jackson.datatype:jackson-datatype-guava,
+                   org.caffinatas.ohc:ohc-core). -->
+            <dependency>
+                <groupId>org.checkerframework</groupId>
+                <artifactId>checker-qual</artifactId>
+                <version>${checker-qual.version}</version>
+            </dependency>
+
+            <!-- TODO This dependency is not intended to be used directly but to override org.apache.kafka:kafka-clients.
+                   Remove it when org.apache.kafka:kafka-clients will have new version. -->
+            <dependency>
+                <groupId>org.xerial.snappy</groupId>
+                <artifactId>snappy-java</artifactId>
+                <version>${snappy.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
